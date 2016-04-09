@@ -26,6 +26,11 @@ class Route
         $aArguments = array();
         $sRequestURI = substr($_SERVER['REQUEST_URI'], strlen(Config::$sBaseUrl));
 
+        // Check if the requested URL is the root of the site.    
+        if($sRequestURI == ''){
+          $sRequestURI = '/';
+        }
+
         $aRouterArgs = explode('/', $sRouterURI);
         $aRequestArgs = explode('/', $sRequestURI);
 
