@@ -24,7 +24,8 @@ class Route
             return false;
         }
         $aArguments = array();
-        $sRequestURI = str_replace(Config::$sBaseUrl, '', $_SERVER['REQUEST_URI']);
+        $sRequestURI = substr($_SERVER['REQUEST_URI'], strlen(Config::$sBaseUrl));
+
         $aRouterArgs = explode('/', $sRouterURI);
         $aRequestArgs = explode('/', $sRequestURI);
 
@@ -41,7 +42,6 @@ class Route
             $sRouterURI = implode('', $aRouterArgs);
             $sRequestURI = implode('', $aRequestArgs);
         }
-
         if (($sRouterURI == $sRequestURI) && $sRequestMethod == $_SERVER['REQUEST_METHOD']) {
             try {
                 list($sController, $sAction) = explode('@', $sAction);

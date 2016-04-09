@@ -4,7 +4,7 @@ namespace App\Core;
 class Config
 {
 
-    public static $sBaseUrl = '/MaartenMVC/';
+    public static $sBaseUrl = '/GithubMVC/';
     public static $aDatabase = array(
         'host'     => 'localhost',
         'database' => 'example',
