@@ -1,0 +1,137 @@
+body {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    background-color: #33363F;
+}
+
+.visits .visit {
+    background-color: #3D3F48;
+    padding: 5px;
+    margin-bottom: 10px;
+    max-width: 500px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.visit-icon-ip {
+    color: #EE8264;
+    margin-right: 5px;
+
+}
+.visit-icon{
+    margin-right: 5px;
+}
+.visit-icon-userAgent {
+    color: #7EC988;
+}
+
+.visit-icon-counter {
+    color: #94C4F2;
+}
+.visit-icon-time{
+    color: #EE8264;
+}
+.visit-icon-search{
+    color: #E7663F;
+}
+a {
+    color: white;
+}
+
+.component .article {
+    background-color: #3D3F48;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: calc(33% - 15px);
+    display: inline-block;
+    margin-left: 5px;
+    float: left;
+}
+
+.component .article h1 {
+    color: #DE9536;
+}
+
+input[type=email], input[type=password],input[type=text], textarea{
+    padding: .2rem .5rem;
+    font-size: 17px;
+    border: 1px solid #ddd;
+
+}
+textarea[name=sMessage]{
+    max-width: 268px;
+    min-width: 268px;
+    width: 268px;
+}
+button[type=submit]{
+    font-size: 14px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+    line-height: 43px;
+    height: 43px;
+    background: #0bb697;
+    border-radius: 4px;
+    color: white;
+    padding: 0px 25px;
+    text-align: center;
+    border: 1px solid #0bb697;
+    box-shadow: 0px 2px 0px #1d6e72;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.start-module .start-tile{
+    width: calc(50% - 44px);
+    padding: 20px;
+    height: 200px;
+    float: left;
+    display: inline-block;
+    color: black !important;
+}
+
+.start-module .write-side{
+    margin-left: 8px;
+    background-color: #1C9A71;
+}
+.start-module .read-side{
+    background-color: #E88264;
+}
+.start-module .write-side i{
+}
+.start-module .read-side i{
+}
+.start-module i{
+    font-size: 50px !important;
+    color: white !important;
+}
+.flash-module{
+    color: white;
+    padding: 3px 5px 3px 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.flash-error{
+    background-color: #EE8264;
+}
+.flash-success{
+    background-color: #7EC988;
+}
+@media (max-width: 1080px) {
+    /* When the screen is 1080px or less */
+    .component .article{
+        width: calc(50% - 20px) !important;
+    }
+}
+@media (max-width: 500px) {
+    /* When the screen is 500px or less */
+    .start-module .start-tile
+    {
+        width: calc(100% - 40px) !important;
+    }
+    .start-module .write-side{
+        margin: 10px 0 0 0;
+    }
+    .component .article{
+        width: calc(100% - 20px) !important;
+    }
+}
