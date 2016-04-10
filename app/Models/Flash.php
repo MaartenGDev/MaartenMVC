@@ -4,20 +4,20 @@ namespace App\Models;
 
 class Flash
 {
-    const REDIRECT_TYPE_ERROR = 'errors';
-    const REDIRECT_TYPE_FLASH = 'flash';
+    const FLASH_SUCCESS = 'errors';
+    const FLASH_ERROR = 'flash';
 
-    public function flush(){
-        unset($_SESSION['flash']);
-        unset($_SESSION['error']);
-        return true;
-    }
-    public function setFlash($sRedirectType,$mData){
-        if(!isset($_SESSION[$sRedirectType])){
-            $_SESSION[$sRedirectType] = $mData;
+   public static function make($sErrorType,$sFlashMessage){
+       $_SESSION['flash']['type'] = $sErrorType;
+       $_SESSION['flash']['data'] = $sFlashMessage;
+   }
+    public static function get(){
+        if(isset($_SESSION['flash'])){
+            $aFlashSession = $_SESSION['flash'];
+        }else{
+            $aFlashSession = array();
         }
-    }
-    public function redirect($sLocation){
-            header('Location: ' . $sLocation);
+        unset($_SESSION['flash']);
+        return $aFlashSession;
     }
 }

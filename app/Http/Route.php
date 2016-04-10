@@ -26,7 +26,6 @@ class Route
         $aArguments = array();
         $sRequestURI = substr($_SERVER['REQUEST_URI'], strlen(Config::$sBaseUrl));
 
-        // Check if the requested URL is the root of the site.    
         if($sRequestURI == ''){
           $sRequestURI = '/';
         }
@@ -55,6 +54,7 @@ class Route
                 $oCurrentObject = new $sControllerPath();
 
                 Router::$bFoundRouter = true;
+
                 if (count($aArguments) > 0) {
                     return ($oCurrentObject->$sAction($aArguments));
                 } else {
