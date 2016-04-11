@@ -10,8 +10,8 @@ class Router extends Route
     public function __construct()
     {
 
-        Route::GET('page/{pageID}', 'HomeController@index');
-
+        Route::GET('notes', 'NoteController@listNotes');
+        Route::GET('note/add', 'NoteController@showForm');
 
         if(!self::$bFoundRouter){
            new View('errors.index',array('errorName' => 'Error 404 Not Found'));

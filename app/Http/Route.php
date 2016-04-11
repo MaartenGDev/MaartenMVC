@@ -24,6 +24,7 @@ class Route
             return false;
         }
         $aArguments = array();
+
         $sRequestURI = substr($_SERVER['REQUEST_URI'], strlen(Config::$sBaseUrl));
 
         if($sRequestURI == ''){
@@ -46,10 +47,14 @@ class Route
             $sRouterURI = implode('', $aRouterArgs);
             $sRequestURI = implode('', $aRequestArgs);
         }
+
+
         if (($sRouterURI == $sRequestURI) && $sRequestMethod == $_SERVER['REQUEST_METHOD']) {
             try {
+
                 list($sController, $sAction) = explode('@', $sAction);
                 $sControllerPath = 'App\Controllers\\' . $sController;
+
 
                 $oCurrentObject = new $sControllerPath();
 
