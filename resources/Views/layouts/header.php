@@ -7,3 +7,14 @@
 </head>
 <body>
 
+<?php
+$aFlash = \App\Models\Flash::get();
+
+if(count($aFlash) . 0){
+    echo '<div class="flash-module flash-' .$aFlash['type'].'">';
+    foreach($aFlash['data'] as $sFlash){
+        echo '<p>'.$sFlash.'</p>';
+    }
+    echo '</div>';
+}
+?>

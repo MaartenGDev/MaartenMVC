@@ -11,7 +11,8 @@ class Router extends Route
     {
 
         Route::GET('notes', 'NoteController@listNotes');
-        Route::GET('note/add', 'NoteController@showForm');
+        Route::GET('notes/add', 'NoteController@showForm');
+        Route::POST('notes/add', 'NoteController@addNote');
 
         if(!self::$bFoundRouter){
            new View('errors.index',array('errorName' => 'Error 404 Not Found'));

@@ -4,8 +4,8 @@ namespace App\Models;
 
 class Flash
 {
-    const FLASH_SUCCESS = 'errors';
-    const FLASH_ERROR = 'flash';
+    const FLASH_SUCCESS = 'success';
+    const FLASH_ERROR = 'errors';
 
    public static function make($sErrorType,$sFlashMessage){
        $_SESSION['flash']['type'] = $sErrorType;
@@ -15,7 +15,7 @@ class Flash
         if(isset($_SESSION['flash'])){
             $aFlashSession = $_SESSION['flash'];
         }else{
-            $aFlashSession = array();
+            $aFlashSession = array('type' => 'flash','data' => array());
         }
         unset($_SESSION['flash']);
         return $aFlashSession;

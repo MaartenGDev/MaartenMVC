@@ -36,7 +36,7 @@ class QueryBuilder
         return $this;
     }
 
-    public function select($sFieldNames)
+    public function select($sFieldNames = '*')
     {
         $this->sFieldNames = $sFieldNames;
         return $this;

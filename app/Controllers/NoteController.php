@@ -5,12 +5,13 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Models\Flash;
 use App\Models\Note;
+use App\Models\QueryBuilder;
 use App\Models\Redirect;
 use App\Models\Validator;
 
 class NoteController
 {
-    public function addPost()
+    public function addNote()
     {
 
         $oValidator = Validator::make($_POST,
@@ -23,7 +24,7 @@ class NoteController
         );
         if($oValidator !== true){
             Flash::make(Flash::FLASH_ERROR,$oValidator);
-            return new Redirect(Redirect::REDIRECT,'/note/create');
+            return new Redirect(Redirect::REDIRECT,'notes/add');
         }
 
         $oNote = new Note();
@@ -34,12 +35,15 @@ class NoteController
         $oNote->save();
 
         Flash::make(Flash::FLASH_SUCCESS,array('Item has successfully been created'));
-        return new Redirect(Redirect::REDIRECT,'/notes');
+        return new Redirect(Redirect::REDIRECT,'notes');
     }
     public function showForm(){
         return new View('note.add');
     }
     public function listNotes(){
-        return new View('note.list');
+        $oNotes = new QueryBuilder();
+        $aNotes = $oNotes->select()->from('notes')->result();
+
+        return new View('note.list',array('notes' =>$aNotes));
     }
 }
