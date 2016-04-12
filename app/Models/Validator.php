@@ -33,6 +33,16 @@ class Validator
                         array_push(self::$aValidatorErrors,$sFieldValue .' can only contain letters.');
                     }
                 }
+                if($aRuleData[0] == 'email'){
+                    if(!preg_match('(^[a-zA-Z.]{1,}@[a-zA-Z.]{1,}\.[a-zA-Z]{1,}$)',$aData[$sFieldValue])){
+                        array_push(self::$aValidatorErrors,$sFieldValue .' contains an invalid email address.');
+                    }
+                }
+                if($aRuleData[0] == 'url'){
+                    if(!preg_match('(^http(?:s?):\/\/{1,}[.A-Za-z]{1,}\.[a-zA-Z.]{1,}$)',$aData[$sFieldValue])){
+                        array_push(self::$aValidatorErrors,$sFieldValue .' contains an invalid link.');
+                    }
+                }
             }
         }
         if (count(self::$aValidatorErrors) == 0) {

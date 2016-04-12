@@ -17,8 +17,8 @@ class NoteController
         $oValidator = Validator::make($_POST,
             array(
                 'name' => 'min:2|max:50|alpha',
-                'email' => 'min:2|max:50',
-                'website' => 'min:2|max:50',
+                'email' => 'min:2|max:50|email',
+                'website' => 'min:2|max:50|website',
                 'message' => 'min:2|max:150|alpha',
             )
         );
